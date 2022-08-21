@@ -1,0 +1,20 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+#  profiles:
+#    active:
+#    - native #ler o .yml atual
+#qual .yml está ativo caso exista vários no projeto
+    
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MulherMarav/ESTUDO_ConfigServer
+          #username: MulherMarav
+          #password: password
+          default-label: main #branch
+          search-paths:
+          - 'greeting-service*' #qual path
