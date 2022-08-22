@@ -16,6 +16,6 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 <p>Criando com Eureka, Feign e Spring Cloud Load Balancer (balanceamento de carga entre os serviços)</p>
 
 * API Gateway
-<p>Criando RouterLocator e Filters em Gateways (o que tem em comum entre os services)</p>
+<p>Criando RouterLocator e Filters em Gateways (rotas dos services)</p>
 
 
