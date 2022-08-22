@@ -40,8 +40,9 @@ public class BookController {
 		book.setCurrency(currency);
 
 		var port = environment.getProperty("local.server.port");
-		book.setEnvironment(port + " - feign");
-
+		book.setEnvironment("Book port: " + port + " - Cambio port: " + cambio.getEnvironment());
+		//para ver balanceamento de carga
+		
 		return book;
 	}
 

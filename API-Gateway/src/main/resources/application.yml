@@ -1,0 +1,18 @@
+server:
+  port: 8765
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka 
+
+spring:
+  application:
+    name: api-gateway
+    
+  #cloud:
+    #gateway:
+      #discovery:
+        #locator:
+          #enabled: true #habilitando discovery location, para os services passar pelo gateway
+          #lower-case-service-id: true #http://localhost:8765/book-service/book-service/5/BRL
