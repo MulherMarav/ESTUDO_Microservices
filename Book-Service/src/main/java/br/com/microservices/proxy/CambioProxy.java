@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.microservices.response.Cambio;
 
-@FeignClient(name = "cambio-service", url = "localhost:8000")
+@FeignClient(name = "cambio-service") //Não precisa, o Eureka já faz o load balancer, url = "localhost:8000")
 public interface CambioProxy {
 
 	@GetMapping("/cambio-service/{amount}/{from}/{to}")
