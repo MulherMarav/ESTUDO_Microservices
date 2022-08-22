@@ -1,0 +1,11 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: naming-server
+    
+eureka:
+  client:
+    register-with-eureka: false #auto registrar, quando tem varias instancias para elas se encontrar entre elas
+    fetch-registry: false  # em produção é true

@@ -2,12 +2,14 @@ package br.com.microservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-public class CambioServiceApplication {
+@EnableFeignClients
+public class Startup {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CambioServiceApplication.class, args);
+		SpringApplication.run(Startup.class, args);
 	}
 
 }
