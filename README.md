@@ -10,4 +10,4 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 <p>Criando os Services Cambio e Book</p>
 
 * Eureka
-<p>Criando os Services Registry, Discovery; e Naming Server</p>
+<p>Criando o Service Registry/Discovery ou Naming Server</p>
