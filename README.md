@@ -8,3 +8,6 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 
 * Microservices com Feign
 <p>Criando os Services Cambio e Book</p>
+
+* Eureka
+<p>Criando os Services Registry, Discovery e Naming Server</p>
