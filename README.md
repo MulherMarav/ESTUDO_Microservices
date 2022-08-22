@@ -11,3 +11,11 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 
 * Eureka
 <p>Criando o Service Registry/Discovery ou Naming Server</p>
+
+* Load Balancer
+<p>Criando com Eureka, Feign e Spring Cloud Load Balancer</p>
+
+* API Gateway
+<p>Criando RouterLocator e Filters em Gateways</p>
+
+
