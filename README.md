@@ -24,7 +24,11 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 <p>Configuração das rotas dos services.</p>
 
 * Resilience4j
-<p>Criando Retry e Fallback Methods (Wait Duration e Exponencial Backoff)</p> 
-<p>É uma biblioteca leve de tolerância a falhas, quando um service está off ou com lentidão.</p>
+<p>Criando Retry e Fallback Methods (Wait Duration e Exponencial Backoff).</p> 
+
+* Features de Circuit Breaker do Resilience4j
+<p>Rate Limit e Bulkhead.</p> 
+
+<p>Resilience4j é uma biblioteca leve de tolerância a falhas; quando um service está off ou com lentidão.</p>
 
 
