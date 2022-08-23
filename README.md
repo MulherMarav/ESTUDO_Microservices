@@ -31,7 +31,9 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 
 <p>Resilience4j é uma biblioteca leve de tolerância a falhas; quando um service está off ou com lentidão.</p>
 
-#Eureka
+</br>
+
+# Eureka
 
 ![image](https://user-images.githubusercontent.com/101612046/186040152-445c96ef-14d9-415a-8d6c-342b1be1859b.png)
 
