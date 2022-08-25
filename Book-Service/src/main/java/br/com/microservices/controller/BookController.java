@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.microservices.model.Book;
 import br.com.microservices.proxy.CambioProxy;
 import br.com.microservices.repository.BookRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("book-service")
+@Tag(name = "Book")
 public class BookController {
 
 	@Autowired
@@ -25,6 +28,7 @@ public class BookController {
 	private CambioProxy proxy;
 
 	@GetMapping(value = "/{id}/{currency}")
+	@Operation(summary = "Find a specific book by your ID.")
 	public Book findBook(@PathVariable("id") Long id, @PathVariable("currency") String currency) {
 
 		var findBook = repository.findById(id);

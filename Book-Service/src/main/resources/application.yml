@@ -45,10 +45,16 @@ spring:
     schemas: book_service
     user: root
     password: root
-    
+   
+  sleuth: #loggar a aplicação    sampler:      probability: 1.0 #0.25 produção
+   
 management:
   endpoints:
     web:
       exposure:
         include:
         - '*'
+springdoc:
+  api-docs:
+    path: book-service/v3/api-docs
+  show-actuator: true

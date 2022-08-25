@@ -11,14 +11,18 @@ import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("book-service")
+@Tag(name = "Resilience4j")
 public class BugTestController {
 	
 	private Logger logger = LoggerFactory.getLogger(BugTestController.class);
 
 	@GetMapping("/bug-test")
+	@Operation(summary = "Test Retry.")
 	@Retry(name = "bug-test", fallbackMethod = "fallbackMethod") //ele tentará a request 3 vezes por padrão, e na 3 apresenta o erro
 	public String bugTest() { //o fallback serve para responder em caso de erro
 		logger.info("Request to bug-test is received!");
@@ -29,6 +33,7 @@ public class BugTestController {
 	}
 	
 	@GetMapping("/bug-test2")
+	@Operation(summary = "Test Circuit Breaker.")
 	@CircuitBreaker(name = "default", fallbackMethod = "fallbackMethod")//mecanismo de segurança que parece um disjuntor, CLOSED, OPEN e HALF_OPEN
 	public String bugTest2() { //o fallback serve para responder em caso de erro
 		logger.info("Request to bug-test is received!");
@@ -39,6 +44,7 @@ public class BugTestController {
 	} //poweshell -> while(1) {curl http://localhost:8765/book-service/bug-test2; sleep 0.1}
 	
 	@GetMapping("/bug-test3")
+	@Operation(summary = "Test Rate Limiter.")
 	@RateLimiter(name = "default") //determina a quantidade de chamadas que pode fazer para um endpoint
 	public String bugTest3() { 
 		logger.info("Request to bug-test is received!");
@@ -47,6 +53,7 @@ public class BugTestController {
 	} 
 	
 	@GetMapping("/bug-test4")
+	@Operation(summary = "Test Bulkhead.")
 	@Bulkhead(name = "default") //determina a quantidade de execuções simultâneas/paralelas
 	public String bugTest4() { 
 		logger.info("Request to bug-test is received!");

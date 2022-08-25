@@ -1,0 +1,32 @@
+package br.com.microservices.configuration;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springdoc.core.GroupedOpenApi;
+import org.springdoc.core.SwaggerUiConfigParameters;
+import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+
+@Configuration
+public class OpenApiConfiguration {
+
+	@Bean // carregar assim que gateway inicializar por isso lazy
+	@Lazy(false) // mapper os swaggers dos services
+	public List<GroupedOpenApi> apis(SwaggerUiConfigParameters config, RouteDefinitionLocator locator) {
+
+		var definitions = locator.getRouteDefinitions().collectList().block();
+
+		definitions.stream().filter(routeDefinition -> routeDefinition.getId().matches(".*-service")) // pega todos os
+																										// services
+				.forEach(routeDefinition -> {
+					String name = routeDefinition.getId();
+					config.addGroup(name);
+					GroupedOpenApi.builder().pathsToMatch("/" + name + "/**").group(name).build();
+				});
+		return new ArrayList<>();
+	}
+
+}

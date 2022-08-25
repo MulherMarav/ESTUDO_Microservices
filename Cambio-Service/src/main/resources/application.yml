@@ -26,6 +26,10 @@ spring:
     schemas: cambio_service
     user: root
     password: root
+ 
+  sleuth: #loggar a aplicação
+    sampler:
+      probability: 1.0 #0.25 produção
     
 management:
   endpoints:
@@ -33,3 +37,11 @@ management:
       exposure:
         include:
         - '*'
+
+springdoc:
+  api-docs:
+    path: cambio-service/v3/api-docs
+
+  
+        
+   

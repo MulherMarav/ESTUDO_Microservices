@@ -1,5 +1,8 @@
 server:
   port: 8765
+  forward-headers-strategy: framework
+
+
 
 eureka:
   client:
@@ -9,6 +12,10 @@ eureka:
 spring:
   application:
     name: api-gateway
+  
+  sleuth: #loggar a aplicação
+    sampler:
+      probability: 1.0 #0.25 produção
     
   #cloud:
     #gateway:
@@ -16,3 +23,33 @@ spring:
         #locator:
           #enabled: true #habilitando discovery location, para os services passar pelo gateway
           #lower-case-service-id: true #http://localhost:8765/book-service/book-service/5/BRL
+  cloud:
+    gateway: #por conta do swagger tem que definir as rotas pelo .yml, necessário definir as rotas dos services
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: cambio-service
+        uri: lb://cambio-service
+        predicates:
+        - Path=/cambio-service/**
+      - id: book-service
+        uri: lb://book-service
+        predicates:
+        - Path=/book-service/**
+      - id: openapi
+        uri: lb://api-gateway
+        predicates:
+        - Path=/v3/api-docs/**
+        filters:
+        - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+        
+        #http://localhost:8765/webjars/swagger-ui/index.html
+        #/cambio-service/v3/api-docs
+        #/book-service/v3/api-docs
+  
+springdoc:    
+  api-docs:
+    groups:
+      enabled: true
+    path: '/swagger-ui.html'
