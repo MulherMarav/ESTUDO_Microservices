@@ -29,7 +29,7 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 <p>Criando Retry (Wait Duration e Exponencial Backoff), Fallback Methods, Circuit Breaker, Rate Limit e Bulkhead.</p> 
 <p>Resilience4j é uma biblioteca leve de tolerância a falhas; quando um service está off ou com lentidão.</p>
 
-* Loggar Distributed tracing
+* Loggar Distributed Tracing
 <p>Loggando as request dos services com Zipkin e Slueth.</p> 
 <p>Rastreamento entre as requisições, para medir o tempo dos services para executar ações das request.</p>
 
@@ -37,7 +37,6 @@ Run via container do Docker
  
 ```
 docker run -p 9411:9411 openzipkin/zipkin:2.23.2
-
 ```
 
 ![image](https://user-images.githubusercontent.com/101612046/186575412-e59a21fb-d157-46ce-881e-9d6f7f2cb83f.png)
