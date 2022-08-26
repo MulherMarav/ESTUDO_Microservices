@@ -30,7 +30,7 @@ ANDAMENTO - Estudo sobre Microservices, com Spring Cloud.
 <p>Resilience4j é uma biblioteca leve de tolerância a falhas; quando um service está off ou com lentidão.</p>
 
 * Loggar Distributed Tracing
-<p>Loggando as request dos services com Zipkin e Slueth.</p> 
+<p>Loggando as request dos services com RabbitMQ, Zipkin e Slueth.</p> 
 <p>Rastreamento entre as requisições, para medir o tempo dos services para executar ações das request.</p>
 
 Run via container do Docker
